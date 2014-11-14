@@ -1,10 +1,7 @@
 package Øvinger;
 
-import java.util.Arrays;
 import java.util.Date;
 import java.util.Scanner;
-
-import com.sun.xml.internal.bind.v2.runtime.unmarshaller.XsiNilLoader.Array;
 
 /*
  * Må helt ærlig si jeg synes denne oppgaven ble veldig klumsete formulert
