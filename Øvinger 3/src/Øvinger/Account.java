@@ -4,11 +4,9 @@ import java.util.Date;
 import java.util.Scanner;
 
 /*
- * Må helt ærlig si jeg synes denne oppgaven ble veldig klumsete formulert
- * Du sier ikke eksplisitt noe om hvordan man skal manipulere de
- * definerte kontoene, du sier bare vi skal definere en sjekk for en id
- * Oppgaven blir tvetydig, det er uhyre viktig at du er presis i formulering av oppgaven
- * Jeg løser oppgaven på min måte, så får vi se om det var slik som du mente her
+ * Må helt ærlig si jeg synes denne oppgaven ble veldig klumsete formulert.
+ * Oppgaven blir tvetydig noen plasser for meg, det er uhyre viktig at du er presis i formulering av oppgaven
+ * Jeg løser oppgaven på min måte, så får vi se om det var slik som du mente her!
  * 
  * Ang. siste innlevering, de overflødigheten kom av at jeg var på en tråd, også så jeg
  * en annen løsning i farta, det ble *veldig* fort skrevet og jeg glemte gjøre om de tingene som ble
@@ -223,8 +221,7 @@ public class Account {
         Scanner scanner = new Scanner(System.in);
 
         print("Enter a valid account id: ");
-        while (!AccountManager.idExists(input = scanner.nextInt()))
-            ;
+        while (!AccountManager.idExists(input = scanner.nextInt()));
 
         int accIndex = input;
         while (true) {
