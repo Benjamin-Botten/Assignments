@@ -62,7 +62,7 @@ public class Hangman {
         return guessedChars;
     }
     
-    //returns true if and only if current word contained the guess
+    //returns true if current word contained the guess or first char of the guess
     //returns false if user already guessed that char or guessed incorrectly
     public boolean handleGuess(String guess) {
         if(winWord.equalsIgnoreCase(guess)) {
