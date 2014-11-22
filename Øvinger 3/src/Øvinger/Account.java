@@ -92,10 +92,11 @@ public class Account {
 
     public static class AccountManager {
         public static final int MAX_ACCS = Integer.MAX_VALUE;
-        public static final int CAPACITY = 10;
+        public static final int MIN_CAPACITY = 10;
+        public static int currCapacity = MIN_CAPACITY;
         private static int size = 0;
         private static final float LOAD_FACTOR = 0.75F;
-        private static Account[] accs = new Account[CAPACITY];
+        private static Account[] accs = new Account[currCapacity];
         private static boolean initialized = false;
 
         public static void init() {
@@ -112,22 +113,30 @@ public class Account {
             add(7, 242);
             add(8, 430);
             add(9, 327);
+            add(10, 392349);
+            add(11, -3948);
+            add(12, 2302094);
+            add(13, 2421);
 
             initialized = true;
         }
 
         public static void add(int id, double balance) {
-            Account[] tmp = new Account[CAPACITY];
+        	if(idExists(id)) return;
+            Account[] tmp = new Account[currCapacity];
             for (int i = 0; i < size; ++i) {
                 tmp[i] = accs[i];
             }
             
-            accs = new Account[CAPACITY + (int) (CAPACITY * LOAD_FACTOR)];
+            if((int) (size + size * LOAD_FACTOR) >= currCapacity) currCapacity = currCapacity + (int) ((double)currCapacity * LOAD_FACTOR);
+            accs = new Account[currCapacity];
             for (int i = 0; i < size; ++i) {
                 accs[i] = tmp[i];
             }
             
             accs[size++] = new Account(id, balance);
+            
+            println("Current size: " + size + ", current capacity " + currCapacity);
         }
 
         public static void add(Account acc) {
@@ -241,7 +250,7 @@ public class Account {
                 int depositSum = scanner.nextInt();
                 AccountManager.deposit(accIndex, depositSum);
             }
-
+            if(input != INPUT_BALANCE)
             println(AccountManager.getBalance(accIndex));
         }
     }
